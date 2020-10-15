@@ -22,7 +22,7 @@ Must have Node.js installed.
 This application welcomes contributions and suggestions.
 
 ## Tests
-Testing framework used: Run "npm test".
+Testing framework used: npm test.
 
 ## Questions
 GitHub Profile: https://github.com/amyventura. 
