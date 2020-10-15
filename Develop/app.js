@@ -4,6 +4,7 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+const open = require("open");
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
@@ -57,9 +58,8 @@ function start() {
             } else {
                 // else render team 
                 // function to render html for team array
-                render(team);
+                makeTeam();
                 console.log(team);
-                // create an team.html from returned render() in output folder => use var outputpath
             }
         })
     }
@@ -142,6 +142,14 @@ function start() {
             }
 
         })
+    }
+
+    function makeTeam() {
+        // create output directory if it doesn't exist
+        if (!fs.existsSync(OUTPUT_DIR)) {
+            fs.mkdirSync(OUTPUT_DIR);
+        }
+        fs.writeFileSync(outputPath, render(team), "utf-8");
     }
 
 }
