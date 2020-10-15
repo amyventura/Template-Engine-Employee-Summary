@@ -51,7 +51,7 @@ function start() {
             message: "Do you want to add another team member?",
             choices: ["yes", "no"]
         }]).then(function (data) {
-            console.log(data);
+
             if (data.newTeamMember === "yes") {
                 // if statement if yes to run addNewTeamMember()
                 addNewTeamMember();
@@ -59,7 +59,6 @@ function start() {
                 // else render team 
                 // function to render html for team array
                 makeTeam();
-                console.log(team);
             }
         })
     }
@@ -75,7 +74,6 @@ function start() {
             }
 
         ]).then(function (data) {
-            console.log(data);
             // if user chooses intern
             if (data.typeOfEmployee === "intern") {
                 // prompts for intern
@@ -98,12 +96,10 @@ function start() {
                         message: "What school does your intern go to?"
                     }
                 ]).then(function (data) {
-                    console.log(data)
                     const intern = new Intern(data.internName, data.internId, data.internEmail, data.internSchool);
 
                     // push into team array
                     team.push(intern);
-
                     // call update team function
                     updateTeam();
                 })
@@ -129,7 +125,6 @@ function start() {
                         message: "What is your engineer's github username?"
                     }
                 ]).then(function (data) {
-                    console.log(data)
                     const engineer = new Engineer(data.engineerName, data.engineerId, data.engineerEmail, data.github);
 
                     // push into team array
