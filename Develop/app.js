@@ -34,7 +34,7 @@ function start() {
             message: "What is your manager's office number?"
         }
     ]).then(function (data) {
-        console.log(data)
+    
         const manager = new Manager(data.managerName, data.managerId, data.managerEmail, data.managerOfficeNumber);
 
         team.push(manager);
